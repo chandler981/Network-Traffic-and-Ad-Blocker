@@ -1,0 +1,65 @@
+# === Maven & Build ===
+/target/
+.mvn/wrapper/maven-wrapper.jar
+/build/
+.gradle/
+
+# === Maven Wrapper (should be kept in repo) ===
+!mvnw
+!mvnw.cmd
+!.mvn/wrapper/maven-wrapper.properties
+
+# === IDEs ===
+.vscode/
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# === OS Files ===
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# === Java Artifacts ===
+*.class
+*.jar
+*.war
+*.ear
+
+# === Logs and Temp ===
+*.log
+*.tmp
+*.swp
+*.bak
+/logs/
+/cache/
+/data/
+
+# === Security ===
+certs/
+*.pem
+*.crt
+*.key
+*.pfx
+*.jks
+*.truststore
+*.keystore
+
+# === Config & Runtime Data ===
+.env
+.env.local
+config.properties
+local_config.yaml
+*.db
+*.sqlite
+*.har
+*.json  # If dynamically generated
+
+# === Misc ===
+*.lock
+*.pid
+*.gz
+HELP.md
