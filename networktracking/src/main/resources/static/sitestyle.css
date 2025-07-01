@@ -1,0 +1,28 @@
+body{
+    background-color: lightgray;
+}
+
+
+header{
+    justify-content: center;    
+}
+
+.site-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.site-table th, .site-table td {
+    border: 1px solid #050505;
+    padding: 8px 12px;
+    text-align: left;
+}
+
+.site-table th {
+    background-color: #ffffff;
+}
+
+.site-table tr{
+    background-color: white;
+
+}
