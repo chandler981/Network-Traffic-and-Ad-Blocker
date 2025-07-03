@@ -3,7 +3,7 @@
  * Written:      6 / 27 / 2025
  * Last Updated: 6 / 27 / 2025
  * 
- * 
+ * Wrapper class for the DefaultHttpProxyServer class from Littleproxy
  *  
  * 
  */

@@ -13,5 +13,8 @@ Go through documentation for LittleProxy to understand following classes
     ProxyServerConfig, ProxyFilterFactory, ProxyRequestFilter, ProxyLogService, BlockedRequestEvaluator
 
 7/3/2025
-Go through documentation for LittleProxy to understand following classes
+Go through documentation for LittleProxy to understand following classes :
+    DefaultHttpProxyServer, HttpFilters, HttpFiltersAdapter, HttpProxyServerBootstrap, ChainedProxyManager
+
+that will be used with these custom classes : 
     ProxyServerConfig, ProxyFilterFactory, ProxyRequestFilter, ProxyLogService, BlockedRequestEvaluator
