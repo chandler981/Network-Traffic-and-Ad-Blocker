@@ -11,7 +11,6 @@
 
 package com.networktracking.networktracking.Model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,7 +18,6 @@ import lombok.Setter;
 @Data
 @Getter
 @Setter
-@AllArgsConstructor
 public class TrackingBlocking {
     private String Domain;
     private String IPAddress;

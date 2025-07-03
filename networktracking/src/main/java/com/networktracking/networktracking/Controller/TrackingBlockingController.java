@@ -1,7 +1,7 @@
 /*
  * Author:       Chandler Ward
  * Written:      6 / 27 / 2025
- * Last Updated: 6 / 27 / 2025
+ * Last Updated: 7 / 2 / 2025
  * 
  * 
  * This is the controller class that is handling the GET and POST methods
@@ -15,15 +15,12 @@ package com.networktracking.networktracking.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.networktracking.networktracking.Model.TrackingBlocking;
 import com.networktracking.networktracking.TrafficTrackingServices.ProxyLogService;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
-
-import org.littleshoot.proxy.HttpFilters;
-
-
+import java.util.List;
 
 @Controller
 @RequestMapping("/")
@@ -37,17 +34,9 @@ public class TrackingBlockingController {
 
     // GET /blocked
     @GetMapping("/")
-    public String getBlockedRequests(Model model){
-        // List<TrackingBlocking> requests = proxLogServ.getRequests(); // un comment when proxy files are complete
-        // model.addAttribute("requests", requests)
+    public String addBlockedRequests(Model model){
+        List<TrackingBlocking> sites = proxLogServ.getBlockedRequests();
+        model.addAttribute("site", sites);
         return "index";
     }
-
-    // POST /clear
-    @PostMapping("/clear")
-    public void clearLogs() {
-        // proxyLogService.clear(); //un comment when proxy files are complete
-    }
-
-
 }

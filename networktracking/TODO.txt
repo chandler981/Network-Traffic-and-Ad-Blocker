@@ -6,8 +6,12 @@ Create HTML, CSS+Bootstrap
 7/2/25
 Need to figure out issue with browser not accepting some CSS stuff
 Need to work on backend logic for classes in the Proxy folder
-Need to work on backend logic with Java code that will send info to the frontend to be displayed in Controller class
+Need to work on backend logic with Java code that will send info to the frontend to be displayed
+
 
 Go through documentation for LittleProxy to understand following classes
     ProxyServerConfig, ProxyFilterFactory, ProxyRequestFilter, ProxyLogService, BlockedRequestEvaluator
 
+7/3/2025
+Go through documentation for LittleProxy to understand following classes
+    ProxyServerConfig, ProxyFilterFactory, ProxyRequestFilter, ProxyLogService, BlockedRequestEvaluator
