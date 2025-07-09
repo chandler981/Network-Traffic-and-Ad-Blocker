@@ -12,8 +12,6 @@ package com.networktracking.networktracking.Proxy;
 
 import java.util.HashSet;
 
-import java.util.Arrays;
-
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 

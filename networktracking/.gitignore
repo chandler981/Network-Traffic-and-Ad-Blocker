@@ -63,3 +63,4 @@ local_config.yaml
 *.pid
 *.gz
 HELP.md
+networktracking/src/main/resources/application.properties

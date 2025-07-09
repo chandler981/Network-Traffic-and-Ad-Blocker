@@ -29,3 +29,9 @@ that will be used with these custom classes :
 7/9/25
 Get the BlockedRequestEvaluator class working fully with the 'hosts' file that is being requested
 get the ProxyRequestFilter class working fully with the BlockedRequestEvaluator class
+
+7/10/25
+*Didnt work on missing methods due to adding and figuring out other code to handle HTTPS requests and certificate problems*
+    Work on the missing methods in ProxyFilterFactory and ProxyServerConfig (if any are needed)
+Work on fixing any bugs that might be present
+Fix issue that is occuring with running mvn clean install with the keystore file in ProxyServerRunner class

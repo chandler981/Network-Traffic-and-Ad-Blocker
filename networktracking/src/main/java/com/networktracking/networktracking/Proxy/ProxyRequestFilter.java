@@ -18,7 +18,9 @@ import org.littleshoot.proxy.HttpFiltersAdapter;
 
 import com.networktracking.networktracking.TrafficTrackingServices.ProxyLogService;
 
+import io.netty.handler.codec.http.HttpObject;
 import io.netty.handler.codec.http.HttpRequest;
+import io.netty.handler.codec.http.HttpResponse;
 
 public class ProxyRequestFilter extends HttpFiltersAdapter{
 
@@ -35,5 +37,12 @@ public class ProxyRequestFilter extends HttpFiltersAdapter{
 
     // Method for logging request if it was blocked, so send it to proxyLogService to create a new object
 
-    
+
+    //Method added in to test and look at packets of data 
+    @Override
+    public HttpResponse clientToProxyRequest(HttpObject httpObject) {
+        System.out.println("Received Request: " + originalRequest.uri());
+        return null; // return null means continue the request as normal
+    }
+
 }
