@@ -18,3 +18,14 @@ Go through documentation for LittleProxy to understand following classes :
 
 that will be used with these custom classes : 
     ProxyServerConfig, ProxyFilterFactory, ProxyRequestFilter, ProxyLogService, BlockedRequestEvaluator
+
+7/4/25 - 7/7/25 
+    not able to work on TODO items due to being busy
+
+7/8/25
+    Write some of the code for the proxy classes
+    Fix code for whats needed with backend if issues occur
+
+7/9/25
+Get the BlockedRequestEvaluator class working fully with the 'hosts' file that is being requested
+get the ProxyRequestFilter class working fully with the BlockedRequestEvaluator class
