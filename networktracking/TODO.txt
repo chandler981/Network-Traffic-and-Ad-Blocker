@@ -35,3 +35,11 @@ get the ProxyRequestFilter class working fully with the BlockedRequestEvaluator 
     Work on the missing methods in ProxyFilterFactory and ProxyServerConfig (if any are needed)
 Work on fixing any bugs that might be present
 Fix issue that is occuring with running mvn clean install with the keystore file in ProxyServerRunner class
+
+*didnt get to work as much on stuff as wanted so some is getting moved to 7/11/25*
+
+7/11/25
+ProxyFilterFactory isnt class that needed work it is ProxyRequestFilter which those methods have been planned out 
+    and worked on some
+Need to fix any bugs that are present or marked down
+Fix issue that is occuring with running mvn clean install with the keystore file in ProxyServerRunner class

@@ -23,10 +23,17 @@ public class BlockedRequestEvaluator {
     RestTemplate blockHosts = new RestTemplate();
     HashSet<String> blockedDomains = new HashSet<String>();
     
+
+    /*
+     * uses RestTemplate from SpringBoot to request the file 'hosts' to be able to parse and then use to block requests
+     * This method is called on when the program starts from the main method in NetworktrackingApplication class so that
+     * the HashSet blockedDomains object can store all of the currently gathered domains that deal with being
+     * ads/malware(possibly)/spam etc. -- so incoming requests or packets that pass through the proxy server can be compared the packets
+     * to what is gathered and block it if needed
+     */
     @PostConstruct
     public void RequestList(){
 
-        //uses RestTemplate from SpringBoot to request the file 'hosts' to be able to parse and then use to block requests
         String hostFile = blockHosts.getForObject("https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts", String.class);
 
         if(hostFile != null){

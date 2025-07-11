@@ -15,6 +15,8 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+//Model class for creating objects that will be used for displaying to the users view
+//in the browser
 @Data
 @Getter
 @Setter

@@ -32,6 +32,11 @@ public class ProxyServerRunner {
         this.keystoreProperties = keystoreProperties;
     }
 
+    /*
+     * This method is called on from the main method in NetworktrackingApplication
+     * to start the proxy server which will also create a certificate manager object
+     * to be used to handle the path and password to use the SSL generated keys and certs
+     */
     @PostConstruct
     public void startProxyServer() {
         CustomCertMitmManager mitmManager = CustomCertMitmManagerFactory.create(

@@ -1,3 +1,13 @@
+/*
+ * Author:       Chandler Ward
+ * Written:      7 / 9 / 2025
+ * Last Updated: 7 / 9 / 2025
+ * 
+ * This is the class that handles returning the required 
+ * objects and information for the SSL certificates and information
+ * 
+ */
+
 package com.networktracking.networktracking.CertificateClasses;
 
 import io.netty.handler.codec.http.HttpRequest;

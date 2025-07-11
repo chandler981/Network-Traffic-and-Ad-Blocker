@@ -1,3 +1,14 @@
+/*
+ * Author:       Chandler Ward
+ * Written:      7 / 9 / 2025
+ * Last Updated: 7 / 9 / 2025
+ * 
+ * This class CustomCertMitmManagerFactory handles passing the needed
+ * information to the needed places so that keystore file can be accessed
+ * for its password so that the certificates that are needed can be used
+ * 
+ */
+
 package com.networktracking.networktracking.CertificateClasses;
 
 import javax.net.ssl.*;
