@@ -1,4 +1,4 @@
-NEED TO FIX:
+NEED TO FIX OR DO:
 
 7/1/25
 Create HTML, CSS+Bootstrap
@@ -38,8 +38,23 @@ Fix issue that is occuring with running mvn clean install with the keystore file
 
 *didnt get to work as much on stuff as wanted so some is getting moved to 7/11/25*
 
-7/11/25
+7/11/25 - 7/13/25
+    not able to work on TODO items due to being busy
+
+7/14/25
 ProxyFilterFactory isnt class that needed work it is ProxyRequestFilter which those methods have been planned out 
     and worked on some
 Need to fix any bugs that are present or marked down
 Fix issue that is occuring with running mvn clean install with the keystore file in ProxyServerRunner class
+These methods are being used from the HttpFiltersAdapter interface
+    clientToProxyRequest() - First request from client
+    
+    These two are optional and could be implemented in the future if needed
+    proxyToServerRequest() - Request being sent to target server
+    serverToProxyResponse() - Response from target server
+
+7/15/24
+Fix any bugs that are present in front end
+Fix any bugs that appear in the backend portion with proxy
+Implement whats needed to read the actual datagram and not just the HTTP request to be able to block HTTPS requests like on YouTube ads
+    since those are DYNAMIC and not STATIC domain based 

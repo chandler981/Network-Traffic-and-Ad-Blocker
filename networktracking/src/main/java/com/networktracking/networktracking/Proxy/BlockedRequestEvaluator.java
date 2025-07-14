@@ -1,7 +1,7 @@
 /*
  * Author:       Chandler Ward
  * Written:      7 / 3 / 2025
- * Last Updated: 7 / 8 / 2025
+ * Last Updated: 7 / 14 / 2025
  * 
  * Class that will decide if a request is to be blocked
  * on the determined domain or IP
@@ -20,7 +20,7 @@ import jakarta.annotation.PostConstruct;
 @Component
 public class BlockedRequestEvaluator {
     
-    RestTemplate blockHosts = new RestTemplate();
+    private final RestTemplate blockHosts = new RestTemplate();
     HashSet<String> blockedDomains = new HashSet<String>();
     
 
@@ -36,6 +36,7 @@ public class BlockedRequestEvaluator {
 
         String hostFile = blockHosts.getForObject("https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts", String.class);
 
+        // String hostFile = "example.com";
         if(hostFile != null){
             String[] lines = hostFile.split("\n");
             for(String line : lines){
@@ -54,6 +55,7 @@ public class BlockedRequestEvaluator {
         else{
             System.out.println("Not working");
         }
+        // blockedDomains.add("example.com");
     }
 
     //This method will simply take in a domain from the ProxyRequestFilter class and then check the blockedDomains
