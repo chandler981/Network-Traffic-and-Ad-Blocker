@@ -21,7 +21,7 @@ public class CustomCertMitmManagerFactory {
 
     public static CustomCertMitmManager create(String keyStorePath, String keyStorePassword) {
         try {
-            KeyStore keyStore = KeyStore.getInstance("JKS");
+            KeyStore keyStore = KeyStore.getInstance("PKCS12");
 
             try (FileInputStream keyStoreFile = new FileInputStream(keyStorePath)) {
                 keyStore.load(keyStoreFile, keyStorePassword.toCharArray());

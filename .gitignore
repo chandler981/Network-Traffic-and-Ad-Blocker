@@ -4,3 +4,5 @@ rootCA.key
 rootCA.crt
 networktracking/src/main/resources/application.properties
 *.properties
+networktracking/rootCA.p12
+networktracking/mitm_keystore.p12

@@ -47,8 +47,13 @@ public class ProxyRequestFilter extends HttpFiltersAdapter{
     public HttpResponse clientToProxyRequest(HttpObject httpObject) {
         
         System.out.println(httpObject + " http object print out \n");
+
         if (httpObject instanceof HttpRequest) {
             HttpRequest httpRequest = (HttpRequest) httpObject;
+            System.out.println("Host: " + httpRequest.headers().get("Host"));
+            System.out.println("Full URI: " + httpRequest.uri());
+            System.out.println("Headers: " + httpRequest.headers());
+
             if(packetHandler(httpRequest)){
                 return blockResponse();
             }

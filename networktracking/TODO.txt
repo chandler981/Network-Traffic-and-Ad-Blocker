@@ -58,3 +58,7 @@ Fix any bugs that are present in front end
 Fix any bugs that appear in the backend portion with proxy
 Implement whats needed to read the actual datagram and not just the HTTP request to be able to block HTTPS requests like on YouTube ads
     since those are DYNAMIC and not STATIC domain based 
+
+7/16/24
+Figure out issue with SSL handshake errors occuring with browser
+    after this is figured out, work on other methods for blocking HTTPS and any other bugs
