@@ -62,3 +62,8 @@ Implement whats needed to read the actual datagram and not just the HTTP request
 7/16/24
 Figure out issue with SSL handshake errors occuring with browser
     after this is figured out, work on other methods for blocking HTTPS and any other bugs
+
+7/17/25
+work on CustomCert classes so they correctly make the MITM logic work to be able to work with 
+    HTTPS datagram
+Work on any logic that is needed to block certain requests if MITM and HTTPS decryption stuff is finished
