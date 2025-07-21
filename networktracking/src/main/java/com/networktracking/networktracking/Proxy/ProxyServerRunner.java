@@ -11,10 +11,10 @@ package com.networktracking.networktracking.Proxy;
 
 import org.littleshoot.proxy.HttpProxyServer;
 import org.littleshoot.proxy.impl.DefaultHttpProxyServer;
-import org.littleshoot.proxy.MitmManager;
+
+import org.littleshoot.proxy.extras.SelfSignedMitmManager;
 import org.springframework.stereotype.Component;
 
-import com.networktracking.networktracking.CertificateClasses.CustomCertMitmManagerFactory;
 import com.networktracking.networktracking.TrafficTrackingServices.ProxyLogService;
 
 import jakarta.annotation.PostConstruct;
@@ -35,16 +35,11 @@ public class ProxyServerRunner {
     @PostConstruct
     public void startProxyServer() {
         try {
-            //Use CustomCertMitmManagerFactory to build the MITM manager from keystore
-            MitmManager mitmManager = CustomCertMitmManagerFactory.create(
-                keystoreProperties.getPath(),
-                keystoreProperties.getPassword()
-            );
-
+            
             HttpProxyServer server = DefaultHttpProxyServer.bootstrap()
                 .withPort(3128)
                 .withFiltersSource(proxyFilterFactory)
-                .withManInTheMiddle(mitmManager)
+                .withManInTheMiddle(new SelfSignedMitmManager())
                 .start();
 
             System.out.println("Proxy server started successfully on port 3128.");

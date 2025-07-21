@@ -67,3 +67,17 @@ Figure out issue with SSL handshake errors occuring with browser
 work on CustomCert classes so they correctly make the MITM logic work to be able to work with 
     HTTPS datagram
 Work on any logic that is needed to block certain requests if MITM and HTTPS decryption stuff is finished
+
+7/18/25
+figure out high level layout of what needs to be done with custom cert classes so that it can work properly with HTTP
+    and HTTPS to also be able to deal with the HTTPS datagrams
+
+7/19/25 - 7/20/25
+was busy so couldnt work on anything
+
+7/21/25
+implement what was figured out with the custom cert classes
+work on any bugs or issues that are present or found
+
+7/22/25
+See what can be done about the RootCA problem failing

@@ -36,7 +36,7 @@ public class TrackingBlockingController {
     @GetMapping("/")
     public String addBlockedRequests(Model model){
         List<TrackingBlocking> sites = proxLogServ.getBlockedRequests();
-        model.addAttribute("site", sites);
-        return "index";
+        model.addAttribute("sites", sites);
+        return "layout";
     }
 }

@@ -6,3 +6,5 @@ networktracking/src/main/resources/application.properties
 *.properties
 networktracking/rootCA.p12
 networktracking/mitm_keystore.p12
+littleproxy.pem
+littleproxy.crt

@@ -17,7 +17,7 @@
     
     <main>
         <div class="container">
-            <table class="site-table">
+            <table class="site-table" method="get" action="/">
                 <thead>
                     <tr class="table-headers">
                         <th>Domain</th>
@@ -27,9 +27,9 @@
                 </thead>
                 <tbody>
                     <tr th:each="site : ${sites}">
-                        <td th:text="${site.siteName}">Site Domain</td>
-                        <td th:text="${site.siteAddress}">Address</td>
-                        <td th:text="${site.siteProtocol}">Protocol</td>
+                        <td th:text="${site.domain}">Site Domain</td>
+                        <td th:text="${site.IPAddress}">Address</td>
+                        <td th:text="${site.ProtocolUsed}">Protocol</td>
                     </tr>
                 </tbody>
             </table>

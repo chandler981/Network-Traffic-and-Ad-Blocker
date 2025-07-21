@@ -1,7 +1,7 @@
 /*
  * Author:       Chandler Ward
  * Written:      7 / 9 / 2025
- * Last Updated: 7 / 14 / 2025
+ * Last Updated: 7 / 21 / 2025
  * 
  * This is the class that handles returning the required 
  * objects and information for the SSL certificates and information
@@ -27,7 +27,9 @@ public class CustomCertMitmManager implements MitmManager{
 
     @Override
     public SSLEngine serverSslEngine(String peerHost, int peerPort) {
-        return sslContext.createSSLEngine(peerHost, peerPort);
+        SSLEngine engine = sslContext.createSSLEngine(peerHost, peerPort);
+        engine.setUseClientMode(false);
+        return engine;
     }
 
     @Override
@@ -39,7 +41,9 @@ public class CustomCertMitmManager implements MitmManager{
         
     @Override
     public SSLEngine serverSslEngine() {
-        return sslContext.createSSLEngine();
+        SSLEngine engine = sslContext.createSSLEngine();
+        engine.setUseClientMode(false);
+        return engine;
     }
 
 }
