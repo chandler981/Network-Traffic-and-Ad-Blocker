@@ -35,15 +35,15 @@ public class ProxyServerRunner {
     @PostConstruct
     public void startProxyServer() {
         try {
-            
+
             HttpProxyServer server = DefaultHttpProxyServer.bootstrap()
-                .withPort(3128)
+                .withPort(9090)
                 .withFiltersSource(proxyFilterFactory)
                 .withManInTheMiddle(new SelfSignedMitmManager())
                 .start();
 
-            System.out.println("Proxy server started successfully on port 3128.");
-            System.out.println("Ensure your browser is configured to use localhost:3128 as the proxy.");
+            System.out.println("Proxy server started successfully on port 9090.");
+            System.out.println("Ensure your browser is configured to use localhost:9090 as the proxy.");
             System.out.println("For HTTPS interception, ensure your Root CA certificate is imported into your browser's trust store.");
 
         } catch (Exception e) {

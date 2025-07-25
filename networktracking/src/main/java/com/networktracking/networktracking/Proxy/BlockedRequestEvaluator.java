@@ -55,7 +55,7 @@ public class BlockedRequestEvaluator {
         else{
             System.out.println("Not working");
         }
-        blockedDomains.add("example.com");
+        // blockedDomains.add("example.com");
     }
 
     //This method will simply take in a domain from the ProxyRequestFilter class and then check the blockedDomains

@@ -81,3 +81,9 @@ work on any bugs or issues that are present or found
 
 7/22/25
 See what can be done about the RootCA problem failing
+
+7/23/25
+See which methods from LittleProxy mitm will correctly work with what is needed for the HTTPS certificate issue
+
+7/24/25
+Implement more of what is needed from the littleProxy-mitm methods to be able to do what is required
