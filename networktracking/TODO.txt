@@ -87,3 +87,13 @@ See which methods from LittleProxy mitm will correctly work with what is needed 
 
 7/24/25
 Implement more of what is needed from the littleProxy-mitm methods to be able to do what is required
+
+7/25/25
+Wasnt able to work on errors or project due to being busy
+
+7/26/25
+Work on error BAD_CERTIFICATE error with proxy
+Attempt to implement code for Browsermob-Proxy to see if that can help with the error as it creates a 
+    dynamically created RootCA that can be saved and used
+
+

@@ -8,3 +8,9 @@ networktracking/rootCA.p12
 networktracking/mitm_keystore.p12
 littleproxy.pem
 littleproxy.crt
+networktracking/my-dynamic-ca.cer
+my-dynamic-ca.cer
+littleproxyRootCA.crt
+littleProxyRootCA.key
+littleproxy_Keystore.p12
+rootCA.pem
