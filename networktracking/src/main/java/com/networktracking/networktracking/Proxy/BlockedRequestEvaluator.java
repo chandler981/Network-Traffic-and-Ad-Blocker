@@ -1,7 +1,7 @@
 /*
  * Author:       Chandler Ward
  * Written:      7 / 3 / 2025
- * Last Updated: 7 / 14 / 2025
+ * Last Updated: 7 / 28 / 2025
  * 
  * Class that will decide if a request is to be blocked
  * on the determined domain or IP
@@ -11,9 +11,13 @@
 package com.networktracking.networktracking.Proxy;
 
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
+
+import com.fasterxml.jackson.databind.JsonNode;
 
 import jakarta.annotation.PostConstruct;
 
@@ -55,12 +59,50 @@ public class BlockedRequestEvaluator {
         else{
             System.out.println("Not working");
         }
-        // blockedDomains.add("example.com");
+        blockedDomains.add("example.com");
     }
 
     //This method will simply take in a domain from the ProxyRequestFilter class and then check the blockedDomains
     //HashSet if that domain is in the set, if true block it, if false let it pass
     public boolean isBlocked(String domain){
         return blockedDomains.contains(domain.toLowerCase());
+    }
+        
+    public boolean shouldBlock(JsonNode json) {
+        return containsAdKeyword(json);
+    }
+
+    //this method is used for the shouldBlock() class that takes in the JsonNode object created from the jackson library
+    private boolean containsAdKeyword(JsonNode jsonNode) {
+        if (jsonNode.isObject() || jsonNode.isContainerNode()) {
+            Iterator<Map.Entry<String, JsonNode>> fields = jsonNode.fields();
+            while (fields.hasNext()) {
+                Map.Entry<String, JsonNode> field = fields.next();
+                String key = field.getKey().toLowerCase();
+                String value = field.getValue().toString().toLowerCase();
+
+                if (key.contains("ad") || value.contains("ad")) {
+                    return true;
+                }
+
+                if (field.getValue().isContainerNode()) {
+                    if (containsAdKeyword(field.getValue())) {
+                        return true;
+                    }
+                }
+            }
+        } else if (jsonNode.isTextual()) {
+            return jsonNode.asText().toLowerCase().contains("ad");
+        }
+        return false;
+    }
+
+    public boolean shouldBlock(Map<String, String> formData) {
+        for(Map.Entry<String, String> entry : formData.entrySet()){
+            if(entry.getKey().toLowerCase().contains("ad") || entry.getValue().toLowerCase().contains("ad")){
+                return true;
+            }
+        }
+        return false;
     }
 }

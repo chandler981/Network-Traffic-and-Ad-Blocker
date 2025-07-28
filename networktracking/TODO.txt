@@ -96,4 +96,10 @@ Work on error BAD_CERTIFICATE error with proxy
 Attempt to implement code for Browsermob-Proxy to see if that can help with the error as it creates a 
     dynamically created RootCA that can be saved and used
 
+7/27/25
+Wasnt able to work on project due to being busy
+
+7/28/25
+Work on logic to block unwanted HTTPS requests
+    Work on anything else needed to go with the blocking logic
 

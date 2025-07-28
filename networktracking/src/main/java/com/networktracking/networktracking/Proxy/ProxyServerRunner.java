@@ -1,7 +1,7 @@
 /*
  * Author:       Chandler Ward
  * Written:      7 / 8 / 2025
- * Last Updated: 7 / 26 / 2025
+ * Last Updated: 7 / 28 / 2025
  *
  * This class handles starting the proxy server when the application launches.
  * It relies on CustomCertMitmManagerFactory to handle SSL certificates using your PKCS12 keystore.
@@ -15,7 +15,6 @@ import org.littleshoot.proxy.HttpProxyServer;
 import org.littleshoot.proxy.impl.DefaultHttpProxyServer;
 
 import net.lightbody.bmp.mitm.KeyStoreFileCertificateSource;
-import net.lightbody.bmp.mitm.RootCertificateGenerator;
 import net.lightbody.bmp.mitm.manager.ImpersonatingMitmManager;
 
 import org.springframework.stereotype.Component;
