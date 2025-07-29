@@ -103,3 +103,12 @@ Wasnt able to work on project due to being busy
 Work on logic to block unwanted HTTPS requests
     Work on anything else needed to go with the blocking logic
 
+7/29/25
+Test and see if theres are errors with the front end HTML and ThymeLeaf
+Add more to the Https domains from youtube/google to block them
+
+7/30/25
+Get the Https domains to look for with youtube since most of the regular ads that 
+    appear on webpages get blocked
+Need to work on the checking logic for the ads that come through on youtube as some of them come through 
+    even though in the console it logs that its showing intercepted but still comes through

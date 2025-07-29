@@ -14,3 +14,4 @@ littleproxyRootCA.crt
 littleProxyRootCA.key
 littleproxy_Keystore.p12
 rootCA.pem
+HttpsDomains.txt

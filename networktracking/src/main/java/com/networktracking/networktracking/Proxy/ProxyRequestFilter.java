@@ -1,7 +1,7 @@
 /*
  * Author:       Chandler Ward
  * Written:      7 / 3 / 2025
- * Last Updated: 7 / 28 / 2025
+ * Last Updated: 7 / 29 / 2025
  * 
  * Subclass of HttpFiltersAdapter that will be used to customize filtering logic
  * for what is to be blocked in terms of domain or IP
@@ -57,12 +57,14 @@ public class ProxyRequestFilter extends HttpFiltersAdapter{
     @Override
     public HttpResponse clientToProxyRequest(HttpObject httpObject) {
         
-        System.out.println(httpObject + " http object print out \n");
+        // System.out.println(httpObject + " http object print out \n");
+
+        // System.out.println(this.originalRequest.uri());
 
         if (httpObject instanceof HttpRequest) {
             HttpRequest httpRequest = (HttpRequest) httpObject;
             
-            //This if ... else block serves no purpose in terms of logic, its here just to see what is intercepted in the console
+            // This if ... else block serves no purpose in terms of logic, its here just to see what is intercepted in the console
             // if (httpRequest.method().name().equalsIgnoreCase("CONNECT")) {
             //     System.out.println("==> HTTPS CONNECT tunnel: " + httpRequest.uri());
             // } else {
@@ -85,8 +87,11 @@ public class ProxyRequestFilter extends HttpFiltersAdapter{
                     
                     if(contentType != null){
                         //here the bodyBuffer is converted to a string and parsed as a JSON
+                        // System.out.println("This is the domain: " + httpContent.toString());
+
                         if(contentType.contains("application/json")){
                             String convertedData = bodyBuffer.toString(StandardCharsets.UTF_8); //StandardCharsets.UTF_8 is used get the correct results so nothing is still un readable
+                            System.out.println(convertedData);
                             JsonNode json = parseJson(convertedData); //creates a JsonNode object that will have a returned object from the parseJson() method
                             
                             if(json == null){
@@ -136,7 +141,7 @@ public class ProxyRequestFilter extends HttpFiltersAdapter{
                                                 .collect(Collectors.toMap(pair -> URLDecoder.decode(pair[0], StandardCharsets.UTF_8), 
                                                                         pair -> URLDecoder.decode(pair[1], StandardCharsets.UTF_8)
                                                 ));
-        System.out.println("Parsed Form Data: " + returnedMap);
+        // System.out.println("Parsed Form Data: " + returnedMap);
 
         return returnedMap;
     }
@@ -204,7 +209,7 @@ public class ProxyRequestFilter extends HttpFiltersAdapter{
     //method to parse the domain from the httpObject that is obtained from the proxy
     public String parseNeededInfo(HttpRequest httpRequest){
         String domain = httpRequest.headers().get("Host");
-        System.out.println("This is the quested datas domain for HTTP: " + domain);
+        System.out.println("This is the domain name for HTTP: " + domain);
         
         return domain;
     }

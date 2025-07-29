@@ -1,7 +1,7 @@
 /*
  * Author:       Chandler Ward
  * Written:      7 / 3 / 2025
- * Last Updated: 7 / 28 / 2025
+ * Last Updated: 7 / 29 / 2025
  * 
  * Class that will decide if a request is to be blocked
  * on the determined domain or IP
@@ -10,9 +10,13 @@
 
 package com.networktracking.networktracking.Proxy;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Scanner;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
@@ -26,6 +30,7 @@ public class BlockedRequestEvaluator {
     
     private final RestTemplate blockHosts = new RestTemplate();
     HashSet<String> blockedDomains = new HashSet<String>();
+    ArrayList<String> httpsDomainsList;
     
 
     /*
@@ -37,7 +42,7 @@ public class BlockedRequestEvaluator {
      */
     @PostConstruct
     public void RequestList(){
-
+        this.httpsDomainsList = httpsDomains();
         String hostFile = blockHosts.getForObject("https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts", String.class);
 
         // String hostFile = "example.com";
@@ -52,9 +57,7 @@ public class BlockedRequestEvaluator {
                     String domain = parts[1];                   
                     blockedDomains.add(domain);
                 }
-            }
-            // System.out.println(blockedDomains); //console print to check everything is being added
-            
+            }            
         }
         else{
             System.out.println("Not working");
@@ -72,6 +75,22 @@ public class BlockedRequestEvaluator {
         return containsAdKeyword(json);
     }
 
+    private ArrayList<String> httpsDomains(){
+        File domainsTxt = new File("networktracking/HttpsDomains.txt");
+        ArrayList<String> domains = new ArrayList<String>();
+        Scanner scan;
+        try {
+            scan = new Scanner(domainsTxt);
+            while(scan.hasNextLine() != false){
+                domains.add(scan.nextLine());
+            }
+            System.out.println(domains);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return domains;
+    }
+
     //this method is used for the shouldBlock() class that takes in the JsonNode object created from the jackson library
     private boolean containsAdKeyword(JsonNode jsonNode) {
         if (jsonNode.isObject() || jsonNode.isContainerNode()) {
@@ -80,6 +99,12 @@ public class BlockedRequestEvaluator {
                 Map.Entry<String, JsonNode> field = fields.next();
                 String key = field.getKey().toLowerCase();
                 String value = field.getValue().toString().toLowerCase();
+
+                System.out.println(key + " and " + value);
+
+                if(this.httpsDomainsList.contains(key) || this.httpsDomainsList.contains(value)){
+                    System.out.println("The arraylist was used to compare");
+                }
 
                 if (key.contains("ad") || value.contains("ad")) {
                     return true;
