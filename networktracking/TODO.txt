@@ -112,3 +112,16 @@ Get the Https domains to look for with youtube since most of the regular ads tha
     appear on webpages get blocked
 Need to work on the checking logic for the ads that come through on youtube as some of them come through 
     even though in the console it logs that its showing intercepted but still comes through
+
+7/31/25
+Need to work on the checking logic for the ads that come through on youtube as some of them come through 
+    even though in the console it logs that its showing intercepted but still comes through
+
+8/1/25 - 8/3/25
+Couldnt work on project due to being busy
+
+8/4/25
+Finish working on the fix for checking the domains logic with the HTTPS data that comes through
+
+8/5/25
+Finish working on the fix for checking the domains logic with the HTTPS data that comes through

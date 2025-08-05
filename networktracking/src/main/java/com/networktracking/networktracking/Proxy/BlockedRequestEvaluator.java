@@ -1,7 +1,7 @@
 /*
  * Author:       Chandler Ward
  * Written:      7 / 3 / 2025
- * Last Updated: 7 / 29 / 2025
+ * Last Updated: 8 / 5 / 2025
  * 
  * Class that will decide if a request is to be blocked
  * on the determined domain or IP
@@ -30,7 +30,7 @@ public class BlockedRequestEvaluator {
     
     private final RestTemplate blockHosts = new RestTemplate();
     HashSet<String> blockedDomains = new HashSet<String>();
-    ArrayList<String> httpsDomainsList;
+    String hostFile;
     
 
     /*
@@ -42,8 +42,7 @@ public class BlockedRequestEvaluator {
      */
     @PostConstruct
     public void RequestList(){
-        this.httpsDomainsList = httpsDomains();
-        String hostFile = blockHosts.getForObject("https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts", String.class);
+        this.hostFile = blockHosts.getForObject("https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts", String.class);
 
         // String hostFile = "example.com";
         if(hostFile != null){
@@ -63,6 +62,7 @@ public class BlockedRequestEvaluator {
             System.out.println("Not working");
         }
         blockedDomains.add("example.com");
+        blockedDomains.add("https://www.food.com/");
     }
 
     //This method will simply take in a domain from the ProxyRequestFilter class and then check the blockedDomains
@@ -73,22 +73,6 @@ public class BlockedRequestEvaluator {
         
     public boolean shouldBlock(JsonNode json) {
         return containsAdKeyword(json);
-    }
-
-    private ArrayList<String> httpsDomains(){
-        File domainsTxt = new File("networktracking/HttpsDomains.txt");
-        ArrayList<String> domains = new ArrayList<String>();
-        Scanner scan;
-        try {
-            scan = new Scanner(domainsTxt);
-            while(scan.hasNextLine() != false){
-                domains.add(scan.nextLine());
-            }
-            System.out.println(domains);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        return domains;
     }
 
     //this method is used for the shouldBlock() class that takes in the JsonNode object created from the jackson library
@@ -102,11 +86,8 @@ public class BlockedRequestEvaluator {
 
                 System.out.println(key + " and " + value);
 
-                if(this.httpsDomainsList.contains(key) || this.httpsDomainsList.contains(value)){
-                    System.out.println("The arraylist was used to compare");
-                }
-
-                if (key.contains("ad") || value.contains("ad")) {
+                if(this.hostFile.contains(key) || this.hostFile.contains(value)){
+                    System.out.println("The github string list was used correctly");
                     return true;
                 }
 
